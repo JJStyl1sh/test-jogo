@@ -15,25 +15,23 @@ body {
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 10px;
-  justify-items: center;
-  align-items: center;
-  max-width: 340px;
+  width: 600px;
+  height: 600px;
   margin: 0 auto;
+  border: 1px solid #000;
+  box-sizing: border-box;
 }
 
 .grid-item {
-  width: 150px;
-  height: 150px;
-  background-color: #ccc;
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
+  background-color: #ccc;
+  border: 1px solid #000;
+  box-sizing: border-box;
 }
 
-.arrow {
+.shape {
   width: 50px;
   height: 50px;
   cursor: pointer;
@@ -43,6 +41,11 @@ body {
   align-items: center;
 }
 
-.arrow:hover {
+.shape:hover {
   transform: scale(1.2);
+}
+
+.circle {
+  border-radius: 50%;
+  background-color: red;
 }
