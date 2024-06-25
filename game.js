@@ -1,3 +1,4 @@
+// game.js
 document.addEventListener("DOMContentLoaded", () => {
     const gameArea = document.getElementById('game-area');
     const timeDisplay = document.getElementById('time');
@@ -11,16 +12,16 @@ document.addEventListener("DOMContentLoaded", () => {
         'BolaVermelha.png',
         'SetaVerde.png',
         'SetaVermelha.png'
-    ];
+    ]; // Array com os nomes dos arquivos de imagem
 
-    let score = 0; // armazenar a pontuação
-    let errors = 0; // armazenar os erros
-    let time = 0; // armazenar o tempo
-    let gameInterval; // armazenar o intervalo do jogo
-    let currentImage = ''; // armazenar a imagem atual
-    let currentSquare = null; // armazenar o quadrado atual
+    let score = 0; // Variável para armazenar a pontuação
+    let errors = 0; // Variável para armazenar os erros
+    let time = 0; // Variável para armazenar o tempo
+    let gameInterval; // Variável para armazenar o intervalo do jogo
+    let currentImage = ''; // Variável para armazenar a imagem atual
+    let currentSquare = null; // Variável para armazenar o quadrado atual
 
-    // iniciar o jogo
+    // Função para iniciar o jogo
     const startGame = () => {
         score = 0;
         errors = 0;
@@ -35,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <div id="bottom-square" class="square" data-square="1"></div>
         `;
 
-        //  adiciona os eventos de clique para os quadrados iniciais
+        // Adiciona os eventos de clique para os quadrados iniciais
         document.getElementById('top-square').addEventListener('click', handleSquareClick);
         document.getElementById('bottom-square').addEventListener('click', handleSquareClick);
 
@@ -44,19 +45,19 @@ document.addEventListener("DOMContentLoaded", () => {
         backgroundMusic.play(); // Toca a música de fundo
     };
 
-    //atualizar o tempo do jogo
+    // Função para atualizar o tempo do jogo
     const updateGame = () => {
         time++;
         timeDisplay.textContent = time;
     };
 
-    //obter uma imagem aleatória
+    // Função para obter uma imagem aleatória
     const getRandomImage = () => {
         const randomIndex = Math.floor(Math.random() * images.length);
         return images[randomIndex];
     };
 
-    // obter uma rotação válida
+    // Função para obter uma rotação válida
     const getValidRotation = (image, squareIndex, totalSquares) => {
         if (image === 'SetaVerde.png' || image === 'SetaVermelha.png') {
             if (totalSquares === 2) {
@@ -294,10 +295,44 @@ document.addEventListener("DOMContentLoaded", () => {
     // Função para encerrar o jogo
     const endGame = () => {
         clearInterval(gameInterval); // Para o intervalo do jogo
-        alert(`Jogo Finalizado! Pontuação: ${score}, Erros: ${errors}`); // Mostra a pontuação e os erros
+    
+        const pontosPorAcerto = 267; // Aumenta os pontos ganhos por acerto
+        const penalidadePorErro = 150; // Ajusta os pontos perdidos por erro
+        const tempoMaximo = 60; // Tempo máximo em segundos para o bônus de tempo
+        const tempoRestante = tempoMaximo - time; // Tempo restante se o tempo máximo é 60 segundos
+        const bonusDeTempo = tempoRestante * 40; // Aumenta o bônus de tempo (por exemplo, 50 pontos por segundo restante)
+    
+    
+        // Calcula a pontuação total
+        let pontuacao = (score * pontosPorAcerto) - (errors * penalidadePorErro) + bonusDeTempo;
+    
+        // Limita a pontuação máxima a 9999
+        if (pontuacao > 9999) {
+            pontuacao = 9999;
+        }
+
+        pont_reg = Math.round(pontuacao)
+    
+        showCustomAlert(`Jogo Finalizado! <br><br>Pontuação: ${pont_reg}<br><br>Acertos: ${score}     Erros: ${errors}     Tempo: ${time} segundos`); // Mostra a pontuação e os erros
         disableSquares(); // Desativa os quadrados
         backgroundMusic.pause(); // Pausa a música de fundo
         backgroundMusic.currentTime = 0; // Reseta a música para o início
+    };
+    
+    const showCustomAlert = (message) => {
+        const alertBox = document.getElementById('custom-alert');
+        const alertMessage = document.getElementById('alert-message');
+        alertMessage.innerHTML = message;
+        alertBox.style.display = 'block';
+    
+        // Adiciona o evento de clique para fechar o alerta
+        const closeButton = document.getElementById('alert-close');
+        closeButton.addEventListener('click', closeAlert);
+    };
+    
+    const closeAlert = () => {
+        const alertBox = document.getElementById('custom-alert');
+        alertBox.style.display = 'none';
     };
 
     // Função para desativar os quadrados
