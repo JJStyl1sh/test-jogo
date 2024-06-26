@@ -1,13 +1,13 @@
-/* styles.css */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #1E1E1E;
     margin: 0;
     padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    color: #fff;
 }
 
 #game-container {
@@ -26,14 +26,26 @@ body {
     border-radius: 5px;
 }
 
-#start-button {
-    margin-bottom: 10px;
+.button {
+    display: inline-block;
+    margin-top: 10px;
     padding: 10px 20px;
-    background-color: #28a745;
+    background-color: #007bff;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    text-decoration: none;
+    font-size: 16px;
+    text-align: center;
+}
+
+.button:hover {
+    background-color: #0056b3;
+}
+
+#start-button {
+    background-color: #28a745;
 }
 
 #start-button:hover {
@@ -130,3 +142,85 @@ body {
     background-color: #45a049;
 }
 
+#about-container {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: #2C2C2C;
+    color: white;
+    border-radius: 10px;
+    max-width: 700px;
+    margin: 50px auto;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+}
+
+#about-container h1 {
+    margin-bottom: 20px;
+    font-size: 2.5em;
+    color: #ffcc00;
+}
+
+#about-container p {
+    margin-bottom: 30px;
+    font-size: 1.2em;
+}
+
+#about-container ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 20px 0;
+    font-size: 1.1em;
+    text-align: left;
+}
+
+#about-container ul li {
+    margin-bottom: 10px;
+}
+
+#about-container a.button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 15px 30px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 1.2em;
+    transition: background-color 0.3s ease;
+}
+
+#about-container a.button:hover {
+    background-color: #218838;
+}
+
+
+.credits {
+    margin-top: 40px;
+    font-size: 1.1em;
+    color: #ccc;
+}
+
+.credits h2 {
+    margin-bottom: 20px;
+    font-size: 1.8em;
+    color: #ffcc00;
+}
+
+.developers {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.developer-name {
+    font-weight: bold;
+    font-size: 1.3em;
+    color: #ffffff;
+    margin: 10px 20px;
+    transition: color 0.3s ease;
+}
+
+.developer-name:hover {
+    color: #007bff;
+}
