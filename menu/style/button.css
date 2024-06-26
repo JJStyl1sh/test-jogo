@@ -1,0 +1,98 @@
+#start{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    margin-top: 50%;
+    border-radius: 15px;
+    border-style: none;
+    width: 150px;
+    height: 50px;
+    background-color: green;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: transform 0.1s ease-in-out;
+}
+
+#start:active{
+    transform: scale(0.95);
+}
+
+
+.config-button {
+    position: fixed; /* Posição absoluta em relação ao elemento pai */
+    top: 56%; /* Centralize verticalmente */
+    right: 2%; /* Distância da margem direita */
+    transform: translateY(0%); /* Ajuste para centralizar verticalmente */
+}
+
+.extra {
+    float: right;
+    margin: 10px auto;
+    border-radius: 50px;
+    border-style: none;
+    height: 50px;
+    width: 50px;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+}
+
+#extras{
+    width: 40px;
+    height: 40px;
+}
+
+
+#config{
+    float: right;
+    border-radius: 50px;
+    border-style: none;
+    height: 50px;
+    width: 50px;
+    margin-top: 75%;
+    margin-right: 2%;
+    font-size: 45px;
+    background-color: #81D881;
+    color: white;
+    transition: transform 0.5s ease-in-out;
+}
+
+#circ{
+    float: right;
+    border-radius: 50px;
+    border-style: none;
+    height: 50px;
+    width: 50px;
+    margin-right: 2%;
+    font-size: 45px;
+}
+
+.rotate {
+    transform: rotate(225deg);
+}
+
+#extra-buttons {
+    display: none;
+    margin-top: 20px;
+    text-align: center;
+}
+
+#check{
+    margin-right: 5px;
+}
+
+.extra {
+    float: right;
+    margin: 10px auto;
+    border-radius: 50px;
+    border-style: none;
+    height: 50px;
+    width: 50px;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+}
+
