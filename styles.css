@@ -153,18 +153,19 @@ body {
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
 }
 
-#about-container h1 {
+h1 {
     margin-bottom: 20px;
     font-size: 2.5em;
     color: #ffcc00;
 }
 
-#about-container p {
+p {
     margin-bottom: 30px;
     font-size: 1.2em;
+    line-height: 1.6;
 }
 
-#about-container ul {
+ul {
     list-style-type: none;
     padding: 0;
     margin: 20px 0;
@@ -172,11 +173,11 @@ body {
     text-align: left;
 }
 
-#about-container ul li {
+ul li {
     margin-bottom: 10px;
 }
 
-#about-container a.button {
+a.button {
     display: inline-block;
     margin-top: 20px;
     padding: 15px 30px;
@@ -190,10 +191,9 @@ body {
     transition: background-color 0.3s ease;
 }
 
-#about-container a.button:hover {
+a.button:hover {
     background-color: #218838;
 }
-
 
 .credits {
     margin-top: 40px;
@@ -223,4 +223,46 @@ body {
 
 .developer-name:hover {
     color: #007bff;
+}
+
+/* Media Query para telas menores (como smartphones) */
+@media screen and (max-width: 600px) {
+    #about-container {
+        padding: 20px;
+        margin: 30px auto;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    p {
+        font-size: 1em;
+    }
+
+    ul {
+        font-size: 0.9em;
+        text-align: left;
+        margin-left: 0;
+        padding-left: 20px;
+    }
+
+    a.button {
+        padding: 12px 24px;
+        font-size: 1em;
+    }
+
+    .credits {
+        margin-top: 30px;
+        font-size: 0.9em;
+    }
+
+    .credits h2 {
+        font-size: 1.5em;
+    }
+
+    .developer-name {
+        font-size: 1.1em;
+        margin: 10px 15px;
+    }
 }
