@@ -1,11 +1,11 @@
-#start{
+#start {
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 0 auto;
-    margin-top: 50%;
+    margin-top: 10%;
     border-radius: 15px;
-    border-style: none;
+    border: none;
     width: 150px;
     height: 50px;
     background-color: green;
@@ -16,23 +16,24 @@
     transition: transform 0.1s ease-in-out;
 }
 
-#start:active{
+#start:active {
     transform: scale(0.95);
 }
 
-
 .config-button {
-    position: fixed; /* Posição absoluta em relação ao elemento pai */
-    top: 56%; /* Centralize verticalmente */
-    right: 2%; /* Distância da margem direita */
-    transform: translateY(0%); /* Ajuste para centralizar verticalmente */
+    position: fixed;
+    top: 75%;
+    right: 2%;
+    transform: translateY(-75%);
 }
 
 .extra {
-    float: right;
-    margin: 10px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
     border-radius: 50px;
-    border-style: none;
+    border: none;
     height: 50px;
     width: 50px;
     background-color: #4CAF50;
@@ -40,19 +41,18 @@
     cursor: pointer;
 }
 
-#extras{
+#extras {
     width: 40px;
     height: 40px;
 }
 
-
-#config{
+#config {
     float: right;
     border-radius: 50px;
-    border-style: none;
+    border: none;
     height: 50px;
     width: 50px;
-    margin-top: 75%;
+    margin-top: 20%;
     margin-right: 2%;
     font-size: 45px;
     background-color: #81D881;
@@ -60,14 +60,13 @@
     transition: transform 0.5s ease-in-out;
 }
 
-#circ{
-    float: right;
-    border-radius: 50px;
-    border-style: none;
-    height: 50px;
-    width: 50px;
-    margin-right: 2%;
-    font-size: 45px;
+#circ {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    bottom: 15%;
+    right: 0%;
 }
 
 .rotate {
@@ -80,19 +79,38 @@
     text-align: center;
 }
 
-#check{
-    margin-right: 5px;
+#check {
+    margin-right: 15px;
 }
 
-.extra {
-    float: right;
-    margin: 10px auto;
-    border-radius: 50px;
-    border-style: none;
-    height: 50px;
-    width: 50px;
-    background-color: #4CAF50;
-    color: white;
-    cursor: pointer;
-}
 
+@media (min-width: 768px) {
+    #start {
+        width: 200px;
+        height: 60px;
+        font-size: 18px;
+        margin-top: 5%;
+    }
+
+    .extra {
+        height: 60px;
+        width: 60px;
+    }
+
+    #extras {
+        width: 50px;
+        height: 50px;
+    }
+
+    #config {
+        height: 60px;
+        width: 60px;
+        font-size: 50px;
+        margin-top: 10%;
+    }
+
+    #circ {
+        height: 60px;
+        width: 60px;
+    }
+}
