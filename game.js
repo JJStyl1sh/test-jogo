@@ -41,6 +41,10 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById('bottom-square').addEventListener('click', handleSquareClick);
 
         updateSquareImages(); // Atualiza as imagens dos quadrados e define `currentSquare`
+
+        // Limpa o intervalo do jogo anterior, se existir
+        clearInterval(gameInterval);
+
         gameInterval = setInterval(updateGame, 1000); // Atualiza o jogo a cada segundo
         backgroundMusic.play(); // Toca a música de fundo
     };
