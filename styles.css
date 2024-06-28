@@ -121,8 +121,8 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: white;
-    color: black;
+    background-color: #1E1E1E;
+    color: #fff;
     border: 1px solid #333;
     padding: 20px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
@@ -135,11 +135,16 @@ body {
     border: none;
     padding: 10px 20px;
     cursor: pointer;
-    margin-top: 10px;
+    margin: 10px 5px 0 5px;
 }
 
 #custom-alert button:hover {
     background-color: #45a049;
+}
+
+#custom-alert-buttons {
+    display: flex;
+    justify-content: space-between;
 }
 
 #about-container {
@@ -151,18 +156,43 @@ body {
     max-width: 700px;
     margin: 50px auto;
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+    animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 h1 {
     margin-bottom: 20px;
     font-size: 2.5em;
     color: #ffcc00;
+    animation: slideIn 1s ease-in-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
 p {
     margin-bottom: 30px;
     font-size: 1.2em;
     line-height: 1.6;
+    animation: fadeIn 1.2s ease-in-out;
 }
 
 ul {
@@ -171,6 +201,7 @@ ul {
     margin: 20px 0;
     font-size: 1.1em;
     text-align: left;
+    animation: fadeIn 1.4s ease-in-out;
 }
 
 ul li {
@@ -188,17 +219,20 @@ a.button {
     cursor: pointer;
     text-decoration: none;
     font-size: 1.2em;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    animation: slideIn 1.2s ease-in-out;
 }
 
 a.button:hover {
     background-color: #218838;
+    transform: scale(1.05);
 }
 
 .credits {
     margin-top: 40px;
     font-size: 1.1em;
     color: #ccc;
+    animation: fadeIn 1.6s ease-in-out;
 }
 
 .credits h2 {
@@ -219,13 +253,13 @@ a.button:hover {
     color: #ffffff;
     margin: 10px 20px;
     transition: color 0.3s ease;
+    animation: fadeIn 1.8s ease-in-out;
 }
 
 .developer-name:hover {
     color: #007bff;
 }
 
-/* Media Query para telas menores (como smartphones) */
 @media screen and (max-width: 600px) {
     #about-container {
         padding: 20px;
