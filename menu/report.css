@@ -1,0 +1,56 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #1E1E1E;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    color: #fff;
+    box-sizing: border-box;
+}
+
+h1 {
+    font-size: 3em;
+    padding: 20px;
+    background-color: #333;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+    text-align: center;
+}
+
+#gameResults {
+    padding: 20px;
+    width: 100%;
+    max-width: 600px;
+    box-sizing: border-box;
+}
+
+
+.result {
+    background-color: #333;
+    margin: 10px 0;
+    padding: 25px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    font-size: 1.5em;
+}
+
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2.5em;
+        padding: 20px;
+    }
+
+    #gameResults {
+        padding: 20px;
+    }
+
+    .result {
+        padding: 20px;
+        font-size: 1.3em;
+    }
+}

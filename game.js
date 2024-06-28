@@ -315,6 +315,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
         pont_reg = Math.round(pontuacao)
 
+        const result = {
+            pont_reg: pont_reg,
+            scoreDisplay : score,
+            errorsDisplay: errors,
+            timeDisplay: time,
+            date: new Date().toISOString(),
+        };
+
+        console.log('Saving to localStorage:', result);
+        let results = JSON.parse(localStorage.getItem('results')) || [];
+        // Salva o resultado atual no localStorage
+        results.push(result);
+        localStorage.setItem('results', JSON.stringify(results));
+        console.log('Current results in localStorage:', JSON.parse(localStorage.getItem('results')));
+
         showCustomAlert(`Jogo Finalizado! <br><br>Pontuação: ${pont_reg}<br><br>Acertos: ${score}     Erros: ${errors}     Tempo: ${time} segundos`); // Mostra a pontuação e os erros
         disableSquares(); // Desativa os quadrados
     };

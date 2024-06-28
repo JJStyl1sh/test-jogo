@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Display Data Example</title>
+    <link rel="stylesheet" href="./report.css">
+</head>
+<body>
+    <h1>Saved Game Results</h1>
+    <div id="gameResults"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            console.log('Report script is running');
+
+            // Load results from localStorage
+            const results = localStorage.getItem('results');
+            console.log('Raw results from localStorage:', results);
+
+            let parsedResults;
+            try {
+                parsedResults = JSON.parse(results);
+                console.log('Parsed results:', parsedResults);
+            } catch (e) {
+                console.error('Error parsing results:', e);
+            }
+
+            const gameResultsContainer = document.getElementById('gameResults');
+
+            if (parsedResults && parsedResults.length > 0) {
+                parsedResults.forEach(result => {
+                    const resultDiv = document.createElement('div');
+                    resultDiv.classList.add('result');
+                    resultDiv.innerHTML = `
+                        <strong>Pontuação:</strong> ${result.pont_reg || result.score || 0}<br>
+                        <strong>Acertos:</strong> ${result.scoreDisplay || result.acertos || 0}<br>
+                        <strong>Erros:</strong> ${result.errorsDisplay || result.erros || 0}<br>
+                        <strong>Tempo:</strong> ${result.timeDisplay || 0} segundos<br>
+                        <strong>Data:</strong> ${new Date(result.date).toLocaleString()}
+                    `;
+                    gameResultsContainer.appendChild(resultDiv);
+                });
+            } else {
+                gameResultsContainer.innerHTML = '<p>Nenhum resultado encontrado.</p>';
+            }
+        });
+    </script>
+</body>
+</html>
