@@ -5,7 +5,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const scoreDisplay = document.getElementById('score');
     const errorsDisplay = document.getElementById('errors');
     const startButton = document.getElementById('start-button');
-    const backgroundMusic = document.getElementById('background-music');
 
     const images = [
         'BolaVerde.png',
@@ -46,7 +45,6 @@ document.addEventListener("DOMContentLoaded", () => {
         clearInterval(gameInterval);
 
         gameInterval = setInterval(updateGame, 1000); // Atualiza o jogo a cada segundo
-        backgroundMusic.play(); // Toca a música de fundo
     };
 
     // Função para atualizar o tempo do jogo
@@ -299,41 +297,39 @@ document.addEventListener("DOMContentLoaded", () => {
     // Função para encerrar o jogo
     const endGame = () => {
         clearInterval(gameInterval); // Para o intervalo do jogo
-    
+
         const pontosPorAcerto = 267; // Aumenta os pontos ganhos por acerto
         const penalidadePorErro = 150; // Ajusta os pontos perdidos por erro
         const tempoMaximo = 60; // Tempo máximo em segundos para o bônus de tempo
         const tempoRestante = tempoMaximo - time; // Tempo restante se o tempo máximo é 60 segundos
         const bonusDeTempo = tempoRestante * 40; // Aumenta o bônus de tempo (por exemplo, 50 pontos por segundo restante)
-    
-    
+
+
         // Calcula a pontuação total
         let pontuacao = (score * pontosPorAcerto) - (errors * penalidadePorErro) + bonusDeTempo;
-    
+
         // Limita a pontuação máxima a 9999
         if (pontuacao > 9999) {
             pontuacao = 9999;
         }
 
         pont_reg = Math.round(pontuacao)
-    
+
         showCustomAlert(`Jogo Finalizado! <br><br>Pontuação: ${pont_reg}<br><br>Acertos: ${score}     Erros: ${errors}     Tempo: ${time} segundos`); // Mostra a pontuação e os erros
         disableSquares(); // Desativa os quadrados
-        backgroundMusic.pause(); // Pausa a música de fundo
-        backgroundMusic.currentTime = 0; // Reseta a música para o início
     };
-    
+
     const showCustomAlert = (message) => {
         const alertBox = document.getElementById('custom-alert');
         const alertMessage = document.getElementById('alert-message');
         alertMessage.innerHTML = message;
         alertBox.style.display = 'block';
-    
+
         // Adiciona o evento de clique para fechar o alerta
         const closeButton = document.getElementById('alert-close');
         closeButton.addEventListener('click', closeAlert);
     };
-    
+
     const closeAlert = () => {
         const alertBox = document.getElementById('custom-alert');
         alertBox.style.display = 'none';
